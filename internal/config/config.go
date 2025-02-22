@@ -17,6 +17,7 @@ type Config struct {
 	V2RayMuxTemplate     map[string]interface{}
 	RemnaweveURL         string
 	AppPort              string
+	AppHost              string
 	WebPageTemplatePath  string
 	WebPageTemplate      *template.Template
 	HappJsonEnabled      bool
@@ -86,7 +87,6 @@ func InitConfig() {
 			panic(err)
 		}
 		conf.V2RayMuxTemplate = utils.ConvertJsonStringIntoMap(string(muxData))
-
 	}
 
 	conf.RemnaweveURL = os.Getenv("REMNAWAVE_URL")
@@ -94,6 +94,12 @@ func InitConfig() {
 		slog.Error("remnawave url not found")
 		panic(errors.New("remnawave url not found"))
 	}
+
+	conf.AppHost = os.Getenv("APP_HOST")
+	if conf.AppHost == "" {
+		conf.AppHost = "localhost"
+	}
+
 	conf.AppPort = os.Getenv("APP_PORT")
 	if conf.AppPort == "" {
 		slog.Error("app port not found")

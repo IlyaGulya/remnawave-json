@@ -32,6 +32,7 @@ Modify `.env.sample` to adjust the application settings:
 ```
 REMNAWAVE_URL=sub_domain
 APP_PORT=4000
+APP_HOST=localhost
 # V2RAY_TEMPLATE_PATH=/app/templates/v2ray/default.json
 # V2RAY_MUX_ENABLED=true
 # V2RAY_MUX_TEMPLATE_PATH=/app/templates/v2ray/mux_default.json
@@ -92,27 +93,31 @@ docker compose down && docker compose up -d
    _Description:_ The port on which the application will run.  
    _Example:_ `APP_PORT=4000`
 
-3. **V2RAY_TEMPLATE_PATH**  
+3. **APP_HOST**  
+   _Description:_ The host address on which the application will listen. Use "0.0.0.0" to listen on all available network interfaces.  
+   _Example:_ `APP_HOST=localhost`
+
+4. **V2RAY_TEMPLATE_PATH**  
    _Description:_ The file path to the default V2Ray configuration template.  
    _Example:_ `V2RAY_TEMPLATE_PATH=/app/templates/v2ray/default.json`
 
-4. **V2RAY_MUX_ENABLED**  
+5. **V2RAY_MUX_ENABLED**  
    _Description:_ A flag to enable or disable the V2Ray Mux feature. Set to `true` to enable Mux.  
    _Example:_ `V2RAY_MUX_ENABLED=true`
 
-5. **V2RAY_MUX_TEMPLATE_PATH**  
+6. **V2RAY_MUX_TEMPLATE_PATH**  
    _Description:_ The file path to the V2Ray Mux configuration template.  
    _Example:_ `V2RAY_MUX_TEMPLATE_PATH=/app/templates/v2ray/mux_default.json`
 
-6. **WEB_PAGE_TEMPLATE_PATH**  
+7. **WEB_PAGE_TEMPLATE_PATH**  
    _Description:_ The file path to the subscription template.  
    _Example:_ `WEB_PAGE_TEMPLATE_PATH=/app/templates/subscription/index.html`
 
-7. **HAPP_JSON_ENABLED**  
+8. **HAPP_JSON_ENABLED**  
    _Description:_ A flag to enable or disable JSON output for Happ.  
    _Example:_ `HAPP_JSON_ENABLED=false`
 
-8. **HAPP_ROUTING**  
+9. **HAPP_ROUTING**  
    _Description:_ The routing path for Happ connections.  
    _Example:_ `HAPP_ROUTING=happ://routing/...`
 

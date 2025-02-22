@@ -26,7 +26,7 @@ func Start(service *service.Service) {
 	r.HandleFunc("/{shortUuid}", userAgentRouter(handler)).Methods("GET")
 
 	Server = &http.Server{
-		Addr:    fmt.Sprintf("%s:%s", "localhost", config.GetConfig().AppPort),
+		Addr:    fmt.Sprintf("%s:%s", config.GetConfig().AppHost, config.GetConfig().AppPort),
 		Handler: r,
 	}
 
